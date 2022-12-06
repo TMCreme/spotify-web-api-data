@@ -1,4 +1,4 @@
-import requests 
+import requests
 import configparser
 import os
 import base64
@@ -46,7 +46,7 @@ def read_config(section, item):
     return config[section][item]
 
 
-def auth_flow_for_token():
+def auth_flow_for_token(scope: str = ""):
     # Read credentials from secrets
     client_id = read_config("CLIENT_CREDENTIALS", "CLIENT_ID")
     client_secret = read_config("CLIENT_CREDENTIALS", "CLIENT_SECRET")
@@ -56,7 +56,7 @@ def auth_flow_for_token():
         read_config("AUTHCODE_FLOW", "BASE_URL"),
         read_config("AUTHCODE_FLOW", "RESPONSE_CODE"),
         client_id,
-        read_config("AUTHCODE_FLOW", "SCOPE"),
+        scope,
         read_config("AUTHCODE_FLOW", "REDIRECT_URI")
     )
     # Checking if login from browser is complete before proceeding
