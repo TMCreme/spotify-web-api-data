@@ -23,8 +23,8 @@ This project contains multiple files, each representing a section in the Spotify
 [CLIENT_CREDENTIALS]
 CLIENT_ID=
 CLIENT_SECRET=
-AUTH_URL=
-BASE_URL=
+AUTH_URL=https://accounts.spotify.com/api/token
+BASE_URL= https://api.spotify.com/v1
 
 [AUTHCODE_FLOW]
 BASE_URL=https://accounts.spotify.com/authorize?
