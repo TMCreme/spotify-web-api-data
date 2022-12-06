@@ -1,0 +1,31 @@
+import requests
+from base.main import (
+    obtain_auth_token, read_config
+)
+
+
+class Markets:
+    def __init__(self):
+        self.base_url = read_config("CLIENT_CREDENTIALS", "BASE_URL")
+        self.auth_token = obtain_auth_token()
+        self.headers = {
+            "Authorization": self.auth_token[
+                "token_type"
+                ] + " " + self.auth_token["access_token"],
+            "Content-Type": "application/json"
+        }
+
+    def get_available_markets(self):
+        response = requests.get(
+            self.base_url + "/markets",
+            headers=self.headers
+        )
+        if response.status_code == 200:
+            print(response.json())
+            return response.json()
+        else:
+            print(response.json())
+            return response.json()["error"]["message"]
+
+
+Markets().get_available_markets()
