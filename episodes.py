@@ -49,7 +49,7 @@ class Episodes:
 
     # User data requires the authorization flow
     def get_user_saved_episodes(self, limit: int, country_code="US"):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-library-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
@@ -75,7 +75,7 @@ class Episodes:
 
     # User data requires the authorization flow
     def check_user_saved_episodes(self, ids: str):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-library-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"

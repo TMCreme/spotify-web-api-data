@@ -69,7 +69,7 @@ class Albums:
     # User data requires the Authorization flow for access token
     # To be implemented later
     def get_user_saved_albums(self, limit: int, country_code="US"):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-library-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
@@ -96,7 +96,7 @@ class Albums:
 
     # Also a user data that requires authorization flow
     def check_user_saved_albums(self, ids):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-library-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"

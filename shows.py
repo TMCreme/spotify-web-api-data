@@ -65,7 +65,7 @@ class Shows:
 
     # User data requires auth code
     def get_user_saved_shows(self, limit: int):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-read-playback-position")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
@@ -89,7 +89,7 @@ class Shows:
             return response.json()["error"]["message"]
 
     def check_user_saved_shows(self, ids: str):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-read-playback-position")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"

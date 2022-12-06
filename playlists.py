@@ -47,7 +47,7 @@ class Playlists:
             return response.json()["error"]["message"]
 
     def get_current_user_playlist(self, limit: int = 20):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("playlist-read-private")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"

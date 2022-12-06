@@ -17,7 +17,7 @@ class Users:
         }
 
     def get_current_user_profile(self):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-read-private")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
@@ -38,7 +38,7 @@ class Users:
             return response.json()["error"]["message"]
 
     def get_user_top_items(self, type: str = "artists", limit: int = 20):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-top-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
@@ -74,7 +74,7 @@ class Users:
             return response.json()["error"]["message"]
 
     def get_followed_artists(self, type: str = "artist"):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-follow-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
@@ -98,7 +98,7 @@ class Users:
             return response.json()["error"]["message"]
 
     def check_if_user_follows_artist_or_user(self, ids: str, type: str = "artist"):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-follow-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"

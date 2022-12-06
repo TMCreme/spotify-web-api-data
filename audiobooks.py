@@ -66,7 +66,7 @@ class AudioBooks:
             return response.json()["error"]["message"]
 
     def get_user_saved_audiobooks(self, limit: int):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-library-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
@@ -90,7 +90,7 @@ class AudioBooks:
             return response.json()["error"]["message"]
 
     def check_user_saved_books(self, ids: str):
-        auth_code_token = auth_flow_for_token()
+        auth_code_token = auth_flow_for_token("user-library-read")
         headers = {
             "Authorization": "Bearer " + auth_code_token["access_token"],
             "Content-Type": "application/json"
