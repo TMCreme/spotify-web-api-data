@@ -11,7 +11,7 @@ This project contains multiple files, each representing a section in the Spotify
 * Clone the project into a local directory
 * Change directory to the root of the project and install requirements with `pip install -r requirements.txt`
 * Fill the required information in the `base/config.ini` file as specified below. It contains the credentials and sensitive data needed to run the code. (NB: The REDIRECT_URI needs to be the one that the Fast API is running on. Remember to set it in the APP settings on the Spotify Dashboard)
-* For all User Data APIs, start the FastAPI server with the command `uvicorn main:app --reload`. Otherwise it can be ignored
+* For all User Data APIs, change directory into the web, i.e `cd web` and start the FastAPI server with the command `uvicorn main:app --reload`. Or from the root directory, run `uvicorn web.main:app --reload`. Otherwise for all other APIs, the Fast API can be ignored
 * Run the particular module with `python {filename}`
 * For User Data APIs, a link is printed to the terminal which should be copied and pasted in the browser for authenticating and authorizing such an action on the user data
 * After successfully authenticating, the result should be printed to the terminal. 
